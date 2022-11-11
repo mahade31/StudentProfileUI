@@ -1,0 +1,99 @@
+<div class='card'>
+    <div class='card-header'>
+    </div>
+    <div class='card-body'>
+        <div class='table-responsive'>
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <!-- <th>
+                            <button class='btn btn-primary'
+                                (click) = 'toggleImg()'>
+                                {{showImg ? 'Hide' : 'Show'}} Image
+                            </button> 
+                        </th> -->
+                        <th> ID </th>
+                        <th> StudentID</th>
+                        <th> Name </th>
+                        <th> Dept </th>
+                        <th> UniName </th>
+                        <th> Contact </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = 'let student of filteredStudents'>
+                        <!-- <td>
+                            <img *ngIf = 'showImg'
+                                 [src] = 'product.imageUrl'
+                                 [title] = 'product.productName'
+                                 [style.width.px] = 'imgWidth'
+                                 [style.margin.px] = 'imgMargin'>
+                        </td> -->
+                        <td>{{student.id}}</td>
+                        <td>{{student.studentId}}</td> 
+                        <td>{{student.name}}</td>
+                        <td>{{student.dept}}</td>
+                        <td>{{student.uniName}}</td>
+                        <td>{{student.contactNo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class = "delete">
+            <input type = 'text'
+            [(ngModel)] = 'inputId'/>
+            <button class = 'btn btn-primary'
+            (click) = 'deleteStudentById(inputId)'>
+                Delete by ID
+            </button>
+        </div>
+        <div class = "get">
+            <input type = 'text'
+            [(ngModel)] = 'inputId2'/>
+            <button class = 'btn btn-primary'
+            (click) = 'getStudentById(inputId2)'>
+                Get by ID
+            </button>
+        <tr> {{studentById.studentId}} </tr>
+        <tr> {{studentById.name}} </tr>
+        <tr> {{studentById.dept}} </tr>
+        <tr> {{studentById.uniName}} </tr>
+        <tr> {{studentById.contactNo}} </tr>
+        </div>
+
+        <div class= "post">
+            <td> studentId: <input type = 'number' [(ngModel)] = 'studentPost.studentId'/> </td>
+            <td> name: <input type = 'text' [(ngModel)] = 'studentPost.name' /></td>
+            <td> dept: <input type = 'text' [(ngModel)] = 'studentPost.dept'/> </td>
+            <td> uniName: <input type = 'text' [(ngModel)] = 'studentPost.uniName'/></td>
+            <td> contactNo: <input type = 'text' [(ngModel)] = 'studentPost.contactNo'/></td>
+            <td> <button class= 'btn btn-primary'
+            (click)='postStudent()'>
+                Post
+            </button> </td>
+        </div>
+
+        <div class= "edit">
+        <tr>
+            <td> studentId: <input type = 'text' [(ngModel)] = 'studentEdit.id'/></td>
+            <button class= 'btn btn-primary'
+            (click)='editStudent(studentEdit.id)'>
+                Edit by ID
+            </button>
+        </tr>
+
+        <tr *ngIf = 'clicked'>
+            <td>  name: <input type = 'text' [(ngModel)] = 'studentEdit.name' /></td>
+            <td> dept: <input type = 'text' [(ngModel)] = 'studentEdit.dept'/></td>
+            <td> uniName: <input type = 'text' [(ngModel)] = 'studentEdit.uniName'/></td>
+            <td> contactNo: <input type = 'text' [(ngModel)] = 'studentEdit.contactNo'/></td>
+            <button class = 'btn btn-primary'
+            (click)= 'putStudent(studentEdit)'>
+                    Submit
+            </button>
+        </tr>
+
+        </div>
+
+    </div>
+</div>
